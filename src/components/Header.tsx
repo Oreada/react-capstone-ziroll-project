@@ -1,7 +1,7 @@
 export function Header() {
 	return (
-		<header>
-			<h2>Pic Some</h2>
+		<header className="header">
+			<h2 className="header-title">Pic Some</h2>
 		</header>
 	)
 }
