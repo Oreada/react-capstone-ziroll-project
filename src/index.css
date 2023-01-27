@@ -163,6 +163,8 @@ a:active {
   color: var(--light-blue);
 }
 
+/** photos **/
+
 main.photos {
   padding: 10px;
   display: grid;
@@ -186,14 +188,18 @@ img.image-grid {
   grid-column: span 2;
 }
 
-/* .tall {
-  grid-row: span 2;
-} */
-
 .big {
   grid-column: span 2;
   grid-row: span 2;
 }
+
+/*! возвращаю этот класс в функции getClassName для всех оставшихся фотографий */
+/*! выглядит сомнительно, нужно подумать */
+/* .tall {
+  grid-row: span 2;
+} */
+
+/** cart **/
 
 /* main.cart-page {
   padding: 10px;
@@ -211,6 +217,15 @@ img.image-grid {
 .cart-page div.order-button {
   display: flex;
   justify-content: center;
+}
+
+.cart {
+  color: var(--blue);
+  font-size: 1.2rem;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
 
 div.order-button>button {
@@ -240,6 +255,8 @@ div.order-button>button:disabled {
   margin-left: 10px;
 } */
 
+/** favorite **/
+
 /* .favorite {
   color: var(--red);
   font-size: 1.2rem;
@@ -257,13 +274,4 @@ div.order-button>button:disabled {
 .ri-delete-bin-fill {
   font-size: 1.3em;
   cursor: pointer;
-}
-
-.cart {
-  color: var(--blue);
-  font-size: 1.2rem;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  cursor: pointer;
-} */
+}*/
