@@ -26,6 +26,7 @@ function ContextProvider(props: ContextProviderProps) {
 		fetch(url)
 			.then((response) => response.json())
 			.then((data) => (setPhotosList(data)))
+			.catch((err) => console.log(err))
 	}, []);
 
 	console.log('photosList', photosList);
