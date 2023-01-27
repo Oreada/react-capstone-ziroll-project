@@ -1,7 +1,17 @@
+import { ContextConsumer } from "../context";
+import { Image } from "../components/Image";
+import { getClassName } from "../utils/getClassName";
+
 export function Photos() {
 	return (
-		<main className="photos">
-			<h2>Images go here</h2>
-		</main>
+		<ContextConsumer>
+			{(context) => (
+				<main className="photos">
+					{context.photosList.map((item, index) => (
+						<Image key={item.id} imgUrl={item.url} className={getClassName(Number(index))} />
+					))}
+				</main>
+			)}
+		</ContextConsumer>
 	)
 }

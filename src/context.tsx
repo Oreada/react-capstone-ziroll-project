@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-const { Provider, Consumer } = React.createContext({});
+export interface Photo {
+	id: string;
+	isFavorite: boolean;
+	url: string;
+}
+
+export type ContextType = {
+	photosList: Array<Photo>;
+};
+
+const { Provider, Consumer } = React.createContext<ContextType>({ photosList: [] });
 
 interface ContextProviderProps {
 	children: React.ReactNode;
@@ -14,8 +24,8 @@ function ContextProvider(props: ContextProviderProps) {
 
 	useEffect(() => {
 		fetch(url)
-			.then(response => response.json())
-			.then(data => (setPhotosList(data)))
+			.then((response) => response.json())
+			.then((data) => (setPhotosList(data)))
 	}, []);
 
 	console.log('photosList', photosList);
