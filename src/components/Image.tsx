@@ -1,7 +1,4 @@
-interface ImageProps {
-	className: string;
-	imgUrl: string;
-}
+import { ImageProps } from "../types/types";
 
 export function Image({ className, imgUrl }: ImageProps) {
 	return (
