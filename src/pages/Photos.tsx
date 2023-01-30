@@ -8,7 +8,7 @@ export function Photos() {
 			{(context) => (
 				<main className="photos">
 					{context.photosList.map((item, index) => (
-						<Image key={item.id} imgUrl={item.url} className={getClassName(Number(index))} />
+						<Image key={item.id} img={item} className={getClassName(Number(index))} />
 					))}
 				</main>
 			)}
