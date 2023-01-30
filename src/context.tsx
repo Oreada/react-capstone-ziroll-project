@@ -6,6 +6,7 @@ const { Provider, Consumer } = React.createContext<ContextType>({
 	toggleFavorite: () => { },
 	addPhotoToCart: () => { },
 	cartItems: [],
+	removePhotoFromCart: () => { },
 });
 
 interface ContextProviderProps {
@@ -25,8 +26,11 @@ function ContextProvider(props: ContextProviderProps) {
 	};
 
 	const addPhotoToCart = (objNew: Photo) => {
-		console.log('I have added a photo to the CART');
 		setCartItems((prevArr) => [...prevArr, objNew]);
+	};
+
+	const removePhotoFromCart = (idPhoto: string) => {
+		setCartItems((prevArr) => prevArr.filter((item) => item.id !== idPhoto));
 	};
 
 	useEffect(() => {
@@ -40,7 +44,7 @@ function ContextProvider(props: ContextProviderProps) {
 	console.log('cartItems', cartItems);
 
 	return (
-		<Provider value={{ photosList, toggleFavorite, addPhotoToCart, cartItems }} >
+		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart }} >
 			{props.children}
 		</Provider>
 	)

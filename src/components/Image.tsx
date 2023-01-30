@@ -32,7 +32,7 @@ export function Image({ className, img }: ImageProps) {
 							null}
 
 					{isInCart(img.id, context.cartItems) ?
-						<i className="ri-shopping-cart-fill cart" onClick={() => context.addPhotoToCart(img)}></i> :
+						<i className="ri-shopping-cart-fill cart" onClick={() => context.removePhotoFromCart(img.id)}></i> :
 						hovered ?
 							<i className="ri-add-circle-line cart" onClick={() => context.addPhotoToCart(img)}></i> :
 							null}

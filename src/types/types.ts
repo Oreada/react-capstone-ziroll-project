@@ -9,6 +9,7 @@ export type ContextType = {
 	toggleFavorite: (idPhoto: string) => void;
 	addPhotoToCart: (objNew: Photo) => void;
 	cartItems: Array<Photo>;
+	removePhotoFromCart: (idPhoto: string) => void;
 };
 
 export interface ImageProps {
