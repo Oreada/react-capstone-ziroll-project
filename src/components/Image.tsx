@@ -24,9 +24,15 @@ export function Image({ className, img }: ImageProps) {
 					onMouseEnter={handleMouseEnter}
 					onMouseLeave={handleMouseLeave}>
 					<img src={img.url} className="image-grid" alt="Something" />
-					{img.isFavorite && <i className="ri-heart-fill favorite" onClick={() => context.toggleFavorite(img.id)}></i>}
-					{hovered && <i className="ri-heart-line favorite" onClick={() => context.toggleFavorite(img.id)}></i>}
-					{hovered && <i className="ri-add-circle-line cart"></i>}
+					{/* {img.isFavorite && <i className="ri-heart-fill favorite" onClick={() => context.toggleFavorite(img.id)}></i>}
+					{hovered && <i className="ri-heart-line favorite" onClick={() => context.toggleFavorite(img.id)}></i>} */}
+					{img.isFavorite ?
+						<i className="ri-heart-fill favorite" onClick={() => context.toggleFavorite(img.id)}></i> :
+						hovered ?
+							<i className="ri-heart-line favorite" onClick={() => context.toggleFavorite(img.id)}></i> :
+							null}
+
+					{hovered && <i className="ri-add-circle-line cart" onClick={() => context.addPhotoToCart(img)}></i>}
 				</div>)}
 		</ContextConsumer>
 	)

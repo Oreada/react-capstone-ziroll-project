@@ -3,7 +3,8 @@ import { ContextType, Photo } from "./types/types";
 
 const { Provider, Consumer } = React.createContext<ContextType>({
 	photosList: [],
-	toggleFavorite: function (idPhoto: string): Array<Photo> { return [] },
+	toggleFavorite: () => { },
+	addPhotoToCart: () => { },
 });
 
 interface ContextProviderProps {
@@ -11,7 +12,8 @@ interface ContextProviderProps {
 }
 
 function ContextProvider(props: ContextProviderProps) {
-	const [photosList, setPhotosList] = useState<Array<Photo>>([]);
+	const [photosList, setPhotosList] = useState<Array<Photo>>([]); //! все фотографии
+	const [cartItems, setCartItems] = useState<Array<Photo>>([]); //! только те фотографии, которые добавлены в корзину
 
 	const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
 	// const url = "https://scrimba.com/p/p7P5Hd/c79Jask";
@@ -20,7 +22,11 @@ function ContextProvider(props: ContextProviderProps) {
 		setPhotosList((prevList) => {
 			return prevList.map((photo) => photo.id === idPhoto ? { ...photo, isFavorite: !photo.isFavorite } : photo)
 		});
-		console.log('The heart was clicked!');
+	};
+
+	const addPhotoToCart = (objNew: Photo) => {
+		console.log('I have added a photo to the CART');
+		setCartItems((prevArr) => [...prevArr, objNew]);
 	};
 
 	useEffect(() => {
@@ -31,9 +37,10 @@ function ContextProvider(props: ContextProviderProps) {
 	}, []);
 
 	console.log('photosList', photosList);
+	console.log('cartItems', cartItems);
 
 	return (
-		<Provider value={{ photosList: photosList, toggleFavorite: toggleFavorite }} >
+		<Provider value={{ photosList: photosList, toggleFavorite: toggleFavorite, addPhotoToCart: addPhotoToCart }} >
 			{props.children}
 		</Provider>
 	)

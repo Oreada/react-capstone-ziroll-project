@@ -7,6 +7,7 @@ export interface Photo {
 export type ContextType = {
 	photosList: Array<Photo>;
 	toggleFavorite: (idPhoto: string) => void;
+	addPhotoToCart: (objNew: Photo) => void;
 };
 
 export interface ImageProps {
