@@ -6,9 +6,10 @@ export interface Photo {
 
 export type ContextType = {
 	photosList: Array<Photo>;
+	toggleFavorite: (idPhoto: string) => void;
 };
 
 export interface ImageProps {
 	className: string;
-	imgUrl: string;
+	img: Photo;
 }
