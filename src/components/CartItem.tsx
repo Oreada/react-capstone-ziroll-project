@@ -1,4 +1,4 @@
-import { CartItemProps, Photo } from "../types/types";
+import { CartItemProps } from "../types/types";
 
 export function CartItem({ photo }: CartItemProps) {
 	return (
