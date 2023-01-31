@@ -1,8 +1,4 @@
-import { Photo } from "../types/types";
-
-interface CartItemProps {
-	photo: Photo;
-}
+import { CartItemProps, Photo } from "../types/types";
 
 export function CartItem({ photo }: CartItemProps) {
 	return (

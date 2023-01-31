@@ -16,3 +16,7 @@ export interface ImageProps {
 	className: string;
 	img: Photo;
 }
+
+export interface CartItemProps {
+	photo: Photo;
+}
