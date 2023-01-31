@@ -34,6 +34,7 @@ function ContextProvider(props: ContextProviderProps) {
 	};
 
 	useEffect(() => {
+		console.log('fetch(url)');
 		fetch(url)
 			.then((response) => response.json())
 			.then((data) => (setPhotosList(data)))
