@@ -1,17 +1,9 @@
-import { useState } from "react";
 import { ImageProps, Photo } from "../types/types";
 import { ContextConsumer } from "../context";
+import { useHover } from "../hooks/useHover";
 
 export function Image({ className, img }: ImageProps) {
-	const [hovered, setHovered] = useState(false);
-
-	const handleMouseEnter = () => {
-		setHovered(true);
-	};
-
-	const handleMouseLeave = () => {
-		setHovered(false);
-	};
+	const { hovered, myRef } = useHover();
 
 	const isInCart = (idPhoto: string, cartItems: Array<Photo>) => {
 		return cartItems.some((item) => item.id === idPhoto);
@@ -22,8 +14,8 @@ export function Image({ className, img }: ImageProps) {
 			{(context) => (
 				<div
 					className={`${className} image-container`}
-					onMouseEnter={handleMouseEnter}
-					onMouseLeave={handleMouseLeave}>
+					ref={myRef}
+				>
 					<img src={img.url} className="image-grid" alt="Something" />
 					{img.isFavorite ?
 						<i className="ri-heart-fill favorite" onClick={() => context.toggleFavorite(img.id)}></i> :

@@ -1,19 +1,11 @@
 import { CartItemProps } from "../types/types";
 import { ContextConsumer } from "../context";
 import { PRICE } from "../constants/constants";
-import { useState } from "react";
+import { useHover } from "../hooks/useHover";
 
 export function CartItem({ photo }: CartItemProps) {
-	const [hovered, setHovered] = useState(false);
+	const { hovered, myRef } = useHover();
 	const iconClassName = hovered ? "ri-delete-bin-fill" : "ri-delete-bin-line"
-
-	const handleMouseEnter = () => {
-		setHovered(true);
-	};
-
-	const handleMouseLeave = () => {
-		setHovered(false);
-	};
 
 	return (
 		<ContextConsumer>
@@ -21,8 +13,8 @@ export function CartItem({ photo }: CartItemProps) {
 				<div className="cart-item">
 					<i className={iconClassName}
 						onClick={() => context.removePhotoFromCart(photo.id)}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}>
+						ref={myRef}
+					>
 					</i>
 					<img src={photo.url} width="130px" alt="Something" />
 					<p>{`$${PRICE}`}</p>
