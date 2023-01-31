@@ -32,8 +32,7 @@ export function Cart() {
 						<p>The cart is empty</p>
 					}
 				</main>
-			)
-			}
+			)}
 		</ContextConsumer >
 	)
 }

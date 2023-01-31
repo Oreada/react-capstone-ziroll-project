@@ -36,8 +36,7 @@ export function Image({ className, img }: ImageProps) {
 						hovered ?
 							<i className="ri-add-circle-line cart" onClick={() => context.addPhotoToCart(img)}></i> :
 							null}
-				</div>)
-			}
+				</div>)}
 		</ContextConsumer >
 	)
 }
