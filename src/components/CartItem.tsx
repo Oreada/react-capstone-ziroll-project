@@ -1,5 +1,6 @@
 import { CartItemProps } from "../types/types";
 import { ContextConsumer } from "../context";
+import { PRICE } from "../constants/constants";
 
 export function CartItem({ photo }: CartItemProps) {
 	return (
@@ -8,7 +9,7 @@ export function CartItem({ photo }: CartItemProps) {
 				<div className="cart-item">
 					<i className="ri-delete-bin-line" onClick={() => context.removePhotoFromCart(photo.id)}></i>
 					<img src={photo.url} width="130px" alt="Something" />
-					<p>$5.99</p>
+					<p>{`$${PRICE}`}</p>
 				</div>
 			)}
 		</ContextConsumer>

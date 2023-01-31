@@ -1,4 +1,5 @@
 import { CartItem } from "../components/CartItem";
+import { PRICE } from "../constants/constants";
 import { ContextConsumer } from "../context";
 
 export function Cart() {
@@ -10,7 +11,9 @@ export function Cart() {
 					{context.cartItems.map((item) => (
 						<CartItem key={item.id} photo={item} />
 					))}
-					<p className="total-cost">Total: </p>
+					<p className="total-cost">
+						Total: {(context.cartItems.length * PRICE).toLocaleString("en-US", { style: "currency", currency: "USD" })}
+					</p>
 					<div className="order-button">
 						<button>Place Order</button>
 					</div>
