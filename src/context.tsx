@@ -8,6 +8,7 @@ const { Provider, Consumer } = React.createContext<ContextType>({
 	addPhotoToCart: () => { },
 	cartItems: [],
 	removePhotoFromCart: () => { },
+	clearCart: () => { },
 });
 
 interface ContextProviderProps {
@@ -32,6 +33,10 @@ function ContextProvider(props: ContextProviderProps) {
 		setCartItems((prevArr) => prevArr.filter((item) => item.id !== idPhoto));
 	};
 
+	const clearCart = () => {
+		setCartItems([]);
+	};
+
 	useEffect(() => {
 		console.log('fetch(url)');
 		fetch(API_URL)
@@ -44,7 +49,7 @@ function ContextProvider(props: ContextProviderProps) {
 	console.log('cartItems', cartItems);
 
 	return (
-		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart }} >
+		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart, clearCart }} >
 			{props.children}
 		</Provider>
 	)

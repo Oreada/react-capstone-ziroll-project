@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { CartItem } from "../components/CartItem";
 import { PRICE } from "../constants/constants";
 import { ContextConsumer } from "../context";
 
 export function Cart() {
+	const [buttonText, setButtonText] = useState("Place Order");
+
+	const placeOrder = () => {
+		setButtonText("Ordering...");
+		setTimeout(() => {
+			console.log("Order placed!");
+			setButtonText("Place Order");
+		}, 3000);
+	};
+
 	return (
 		<ContextConsumer>
 			{(context) => (
@@ -14,11 +25,15 @@ export function Cart() {
 					<p className="total-cost">
 						Total: {(context.cartItems.length * PRICE).toLocaleString("en-US", { style: "currency", currency: "USD" })}
 					</p>
-					<div className="order-button">
-						<button>Place Order</button>
-					</div>
+					{(context.cartItems.length > 0) ?
+						<div className="order-button">
+							<button onClick={() => { placeOrder(); context.clearCart(); }}>{buttonText}</button>
+						</div> :
+						<p>The cart is empty</p>
+					}
 				</main>
-			)}
-		</ContextConsumer>
+			)
+			}
+		</ContextConsumer >
 	)
 }
