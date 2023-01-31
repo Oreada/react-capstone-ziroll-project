@@ -4,6 +4,7 @@ import { PRICE } from "../constants/constants";
 import { ContextConsumer } from "../context";
 
 export function Cart() {
+	//* TODO: разобраться с кнопкой, текстом на ней и вообще с функцией placeOrder
 	const [buttonText, setButtonText] = useState("Place Order");
 
 	const placeOrder = () => {
