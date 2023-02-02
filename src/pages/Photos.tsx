@@ -3,6 +3,7 @@ import { Image } from "../components/Image";
 import { getClassName } from "../utils/getClassName";
 
 export function Photos() {
+	console.log('Photos renders');
 	return (
 		<ContextConsumer>
 			{(context) => (

@@ -45,8 +45,8 @@ function ContextProvider(props: ContextProviderProps) {
 			.catch((err) => console.log(err)) //* TODO: вывести сообщение об ошибке пользователю - ?
 	}, []);
 
-	console.log('photosList', photosList);
-	console.log('cartItems', cartItems);
+	// console.log('photosList', photosList);
+	// console.log('cartItems', cartItems);
 
 	return (
 		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart, clearCart }} >

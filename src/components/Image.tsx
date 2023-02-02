@@ -3,6 +3,7 @@ import { ContextConsumer } from "../context";
 import { useHover } from "../hooks/useHover";
 
 export function Image({ className, img }: ImageProps) {
+	// console.log('Image renders');
 	const { hovered, myRef } = useHover();
 
 	const isInCart = (idPhoto: string, cartItems: Array<Photo>) => {
