@@ -5,7 +5,7 @@ import { useHover } from "../hooks/useHover";
 
 export function CartItem({ photo }: CartItemProps) {
 	const { hovered, myRef } = useHover();
-	const iconClassName = hovered ? "ri-delete-bin-fill" : "ri-delete-bin-line"
+	const iconClassName = hovered ? "ri-delete-bin-fill" : "ri-delete-bin-line";
 
 	return (
 		<ContextConsumer>
