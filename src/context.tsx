@@ -5,8 +5,8 @@ import { ContextType, Photo } from "./types/types";
 const { Provider, Consumer } = React.createContext<ContextType>({
 	photosList: [],
 	toggleFavorite: () => { },
-	addPhotoToCart: () => { },
 	cartItems: [],
+	addPhotoToCart: () => { },
 	removePhotoFromCart: () => { },
 	clearCart: () => { },
 	errorFetch: '',
@@ -50,7 +50,15 @@ function ContextProvider(props: ContextProviderProps) {
 	// console.log('cartItems', cartItems);
 
 	return (
-		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart, clearCart, errorFetch }} >
+		<Provider value={{
+			photosList,
+			toggleFavorite,
+			cartItems,
+			addPhotoToCart,
+			removePhotoFromCart,
+			clearCart,
+			errorFetch,
+		}} >
 			{props.children}
 		</Provider>
 	)
