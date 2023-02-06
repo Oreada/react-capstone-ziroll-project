@@ -11,6 +11,7 @@ export type ContextType = {
 	cartItems: Array<Photo>;
 	removePhotoFromCart: (idPhoto: string) => void;
 	clearCart: () => void;
+	errorFetch: string;
 };
 
 export interface ImageProps {

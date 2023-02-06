@@ -9,6 +9,7 @@ const { Provider, Consumer } = React.createContext<ContextType>({
 	cartItems: [],
 	removePhotoFromCart: () => { },
 	clearCart: () => { },
+	errorFetch: '',
 });
 
 interface ContextProviderProps {
@@ -18,6 +19,7 @@ interface ContextProviderProps {
 function ContextProvider(props: ContextProviderProps) {
 	const [photosList, setPhotosList] = useState<Array<Photo>>([]); //! все фотографии
 	const [cartItems, setCartItems] = useState<Array<Photo>>([]); //! только те фотографии, которые добавлены в корзину
+	const [errorFetch, setErrorFetch] = useState('');
 
 	const toggleFavorite = (idPhoto: string) => {
 		setPhotosList((prevList) => {
@@ -38,18 +40,17 @@ function ContextProvider(props: ContextProviderProps) {
 	};
 
 	useEffect(() => {
-		console.log('fetch(url)');
 		fetch(API_URL)
 			.then((response) => response.json())
-			.then((data) => (setPhotosList(data)))
-			.catch((err) => console.log(err)) //* TODO: вывести сообщение об ошибке пользователю - ?
+			.then((data) => setPhotosList(data))
+			.catch((err) => setErrorFetch(`An error occured: ${err.message}`))
 	}, []);
 
 	// console.log('photosList', photosList);
 	// console.log('cartItems', cartItems);
 
 	return (
-		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart, clearCart }} >
+		<Provider value={{ photosList, toggleFavorite, cartItems, addPhotoToCart, removePhotoFromCart, clearCart, errorFetch }} >
 			{props.children}
 		</Provider>
 	)

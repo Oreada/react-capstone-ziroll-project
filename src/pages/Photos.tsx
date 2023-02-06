@@ -11,6 +11,7 @@ export function Photos() {
 					{context.photosList.map((item, index) => (
 						<Image key={item.id} img={item} className={getClassName(Number(index))} />
 					))}
+					{context.errorFetch && <div className="error-message">{context.errorFetch}</div>}
 				</main>
 			)}
 		</ContextConsumer>
