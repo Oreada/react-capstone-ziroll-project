@@ -17,7 +17,7 @@ export function CartItem({ photo }: CartItemProps) {
 					>
 					</i>
 					<img src={photo.url} width="130px" alt="Something" />
-					<p>{`$${PRICE}`}</p>
+					<p className="cart-price">{`$${PRICE}`}</p>
 				</div>
 			)}
 		</ContextConsumer >

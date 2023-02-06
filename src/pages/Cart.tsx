@@ -5,14 +5,14 @@ import { ContextConsumer } from "../context";
 
 export function Cart() {
 	console.log('Cart renders');
-	//* TODO: разобраться с кнопкой, текстом на ней и вообще с функцией placeOrder
 	const [buttonText, setButtonText] = useState("Place Order");
 
-	const placeOrder = () => {
+	const placeOrder = (clearFunc: () => void) => {
 		setButtonText("Ordering...");
 		setTimeout(() => {
 			console.log("Order placed!");
 			setButtonText("Place Order");
+			clearFunc();
 		}, 3000);
 	};
 
@@ -20,7 +20,7 @@ export function Cart() {
 		<ContextConsumer>
 			{(context) => (
 				<main className="cart-page">
-					<h2>Check out</h2>
+					<h2 className="cart-title">Check out</h2>
 					{context.cartItems.map((item) => (
 						<CartItem key={item.id} photo={item} />
 					))}
@@ -29,9 +29,9 @@ export function Cart() {
 					</p>
 					{(context.cartItems.length > 0) ?
 						<div className="order-button">
-							<button onClick={() => { placeOrder(); context.clearCart(); }}>{buttonText}</button>
+							<button onClick={() => { placeOrder(context.clearCart) }}>{buttonText}</button>
 						</div> :
-						<p>The cart is empty</p>
+						<p className="cart-empty-message">The cart is empty</p>
 					}
 				</main>
 			)}
