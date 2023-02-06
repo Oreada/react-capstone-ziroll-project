@@ -138,6 +138,7 @@ img {
   height: 100px;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   align-items: center;
   background-color: var(--pink);
   color: var(--light-blue);
@@ -152,9 +153,13 @@ img {
   transition: all 0.3s ease 0s;
 }
 
-a:visited {
+a {
   color: var(--light-blue);
 }
+
+/* a:visited {
+  color: var(--light-blue);
+} */
 
 a:hover {
   color: var(--blue);
@@ -165,7 +170,9 @@ a:active {
 }
 
 .ri-shopping-cart-fill,
-.ri-shopping-cart-line {
+.ri-shopping-cart-line,
+.ri-hearts-fill,
+.ri-hearts-line {
   transition: all 0.3s ease 0s;
 }
 
@@ -232,7 +239,8 @@ img.image-grid {
   /* align-items: center; */
 }
 
-.cart-title {
+.cart-title,
+.favourite-title {
   align-self: center;
   font-size: 2rem;
 }
@@ -305,4 +313,26 @@ div.order-button>button:hover {
 
 .ri-heart-fill {
   opacity: 0.7;
+}
+
+.favourite-page {
+  max-width: 700px;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  margin-top: 50px;
+}
+
+.favourite-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.favourite-img {
+  display: block;
+  max-width: 100%;
 }

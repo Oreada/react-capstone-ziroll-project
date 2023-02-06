@@ -22,3 +22,7 @@ export interface ImageProps {
 export interface CartItemProps {
 	photo: Photo;
 }
+
+export interface FavoriteItemProps {
+	url: string;
+}
